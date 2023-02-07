@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
 import classes from './new-comment.module.css';
 
 function NewComment(props) {
@@ -10,6 +10,7 @@ function NewComment(props) {
 
   function sendCommentHandler(event) {
     event.preventDefault();
+
 
     const enteredEmail = emailInputRef.current.value;
     const enteredName = nameInputRef.current.value;
@@ -24,6 +25,7 @@ function NewComment(props) {
       !enteredComment ||
       enteredComment.trim() === ''
     ) {
+      
       setIsInvalid(true);
       return;
     }
@@ -33,6 +35,8 @@ function NewComment(props) {
       name: enteredName,
       text: enteredComment,
     });
+
+    
   }
 
   return (
